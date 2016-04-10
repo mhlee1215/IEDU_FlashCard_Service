@@ -169,17 +169,17 @@ public class UserService {
 	}
 	
 	public static void main(String[] args){
-		System.out.println(UserService.getUsers());
-//		User user = new User();
-//		user.setName("Test name1");
-//		user.setEmail("Test Email1");
-//		user.setPassword("Test Password1");
-//		try {
-//			System.out.println(UserService.addUser(user));
-//		} catch (UnsupportedEncodingException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
+		//System.out.println(UserService.getUsers());
+		User user = new User();
+		user.setName("Aiden");
+		user.setEmail("aiden@gmail.com");
+		user.setPassword("Test Password1111");
+		try {
+			System.out.println(UserService.addUser(user));
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }

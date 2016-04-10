@@ -3,13 +3,25 @@ package edu.iedu.flashcard.dao.domain;
 import java.util.List;
 
 public class WordBook {
+	int id;
 	String name;
 	List<Word> wordList;
 
 	public WordBook(String name){
 		this.name = name;
 	}
+
 	
+	public int getId() {
+		return id;
+	}
+
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+
 	public String getName() {
 		return name;
 	}
