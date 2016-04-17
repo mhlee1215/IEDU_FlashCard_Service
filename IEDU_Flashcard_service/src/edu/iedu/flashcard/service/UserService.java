@@ -50,70 +50,6 @@ public class UserService {
 		} finally {
 			httpclient.getConnectionManager().shutdown();
 		}
-		
-//		try {
-//			// HttpGet??
-//			HttpGet httpget = new HttpGet(Env.url + "userListQuery.do");
-//
-//			System.out.println("executing request " + httpget.getURI());
-//			HttpResponse response = httpclient.execute(httpget);
-//			HttpEntity entity = response.getEntity();
-//
-//			System.out.println("----------------------------------------");
-//			// ?? ??
-//			System.out.println(response.getStatusLine());
-//			if (entity != null) {
-//				System.out.println("Response content length: "
-//						+ entity.getContentLength());
-//				BufferedReader rd = new BufferedReader(new InputStreamReader(
-//						response.getEntity().getContent()));
-//
-//				
-//				
-//				String linePart = "";
-//				String line = "";
-//				while ((linePart = rd.readLine()) != null) {
-//					line += linePart;
-//				}
-//					JSONParser j = new JSONParser();
-//					System.out.println("line:" + line);
-//					JSONObject o = (JSONObject) j.parse(line);
-//					JSONArray lang = (JSONArray) o.get("users");
-//					for (int i = 0; i < lang.size(); i++) {
-//						user = new User();
-//						JSONObject o2 = (JSONObject) lang.get(i);
-//
-//						user.setId(Integer.parseInt((String) o2.get("id")));
-//						if (Integer.parseInt((String) o2.get("id")) == 0)
-//							return null;
-//						
-//						user.setName((String) o2.get("name"));
-//						user.setEmail((String) o2.get("email"));
-//
-//						users.add(user);
-//					}
-//
-//					// Map response2 = (Map)o.get("GameMatchSchedules");
-//					// JSONObject o2 = (JSONObject) o.get("GameMatchSchedules");
-//					// System.out.println(o2.entrySet().size());
-//
-//					// //System.out.println(response2.get("FPGameMatchSchedule"));
-//				
-//			}
-//			httpget.abort();
-//			System.out.println("----------------------------------------");
-//			httpclient.getConnectionManager().shutdown();
-//			return users;
-//		} catch (ClientProtocolException e) {
-//			e.printStackTrace();
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		} catch (ParseException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		} finally {
-//			httpclient.getConnectionManager().shutdown();
-//		}
 
 		return users;
 	}
@@ -169,17 +105,17 @@ public class UserService {
 	}
 	
 	public static void main(String[] args){
-		System.out.println(UserService.getUsers());
-//		User user = new User();
-//		user.setName("Aiden");
-//		user.setEmail("aiden@gmail.com");
-//		user.setPassword("Test Password1111");
-//		try {
-//			System.out.println(UserService.addUser(user));
-//		} catch (UnsupportedEncodingException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
+		//System.out.println(UserService.getUsers());
+		User user = new User();
+		user.setName("Aiden");
+		user.setEmail("aiden@gmail.com");
+		user.setPassword("Test Password1111");
+		try {
+			System.out.println(UserService.addUser(user));
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }
