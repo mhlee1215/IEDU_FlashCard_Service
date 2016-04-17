@@ -1,14 +1,20 @@
 package edu.iedu.flashcard.dao.domain;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class WordBook {
 	int id;
 	String name;
 	List<Word> wordList;
+	
+	//for parameter
+	int userid;
 
+	
 	public WordBook(String name){
 		this.name = name;
+		//this.wordList = new ArrayList<Word>();
 	}
 
 	
@@ -41,7 +47,14 @@ public class WordBook {
 
 	@Override
 	public String toString() {
-		return "{\"id\":\"" + id + "\",\"name\":\"" + name + "\",\"wordList\":\"" + wordList + "\"}";
+		return "{\"id\":\"" + id + "\",\"name\":\"" + name + "\",\"wordList\":" + wordList + "}";
+	}
+	
+	public String toStringSealize(){
+		return "?name="+name+
+				"&userid="+userid+
+				"&id="+id;
+				
 	}
 	
 	
