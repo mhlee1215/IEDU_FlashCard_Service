@@ -16,6 +16,8 @@ public class User2WordBook {
 	public void setWordbookid(int wordbookid) {
 		this.wordbookid = wordbookid;
 	}
-	
-	
+	@Override
+	public String toString() {
+		return "{\"userid\":\"" + userid + "\",\"wordbookid\":\"" + wordbookid + "\"}";
+	}
 }

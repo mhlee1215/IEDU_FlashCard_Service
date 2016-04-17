@@ -3,11 +3,11 @@ package edu.iedu.flashcard.dao.domain;
 public class Word {
 	int id;
 	int wordbookid;
-	String word;
+	String name;
 	String meaning;
 	
-	public Word(String word, String meaning){
-		this.word = word;
+	public Word(String name, String meaning){
+		this.name = name;
 		this.meaning = meaning;
 	}
 	
@@ -25,18 +25,25 @@ public class Word {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getWord() {
-		return word;
+	
+	public String getName() {
+		return name;
 	}
-	public void setWord(String word) {
-		this.word = word;
+
+	public void setName(String name) {
+		this.name = name;
 	}
+
 	public String getMeaning() {
 		return meaning;
 	}
 	public void setMeaning(String meaning) {
 		this.meaning = meaning;
 	}
-	
-	
+
+	@Override
+	public String toString() {
+		return "{\"id\":\"" + id + "\",\"wordbookid\":\"" + wordbookid + "\",\"name\":\"" + name + "\",\"meaning\":\""
+				+ meaning + "\"}";
+	}	
 }
