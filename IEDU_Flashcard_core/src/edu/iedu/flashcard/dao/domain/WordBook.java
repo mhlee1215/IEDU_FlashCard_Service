@@ -37,4 +37,12 @@ public class WordBook {
 	public void setWordList(List<Word> wordList) {
 		this.wordList = wordList;
 	}
+
+
+	@Override
+	public String toString() {
+		return "{\"id\":\"" + id + "\",\"name\":\"" + name + "\",\"wordList\":\"" + wordList + "\"}";
+	}
+	
+	
 }
