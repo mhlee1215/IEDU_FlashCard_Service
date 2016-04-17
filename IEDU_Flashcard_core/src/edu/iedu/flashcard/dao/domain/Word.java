@@ -2,6 +2,7 @@ package edu.iedu.flashcard.dao.domain;
 
 public class Word {
 	int id;
+	int wordbookid;
 	String word;
 	String meaning;
 	
@@ -10,6 +11,14 @@ public class Word {
 		this.meaning = meaning;
 	}
 	
+	public int getWordbookid() {
+		return wordbookid;
+	}
+
+	public void setWordbookid(int wordbookid) {
+		this.wordbookid = wordbookid;
+	}
+
 	public int getId() {
 		return id;
 	}
