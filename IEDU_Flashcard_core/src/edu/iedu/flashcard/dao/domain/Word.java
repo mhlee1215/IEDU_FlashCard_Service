@@ -46,4 +46,6 @@ public class Word {
 		return "{\"id\":\"" + id + "\",\"wordbookid\":\"" + wordbookid + "\",\"name\":\"" + name + "\",\"meaning\":\""
 				+ meaning + "\"}";
 	}	
+	
+	
 }
