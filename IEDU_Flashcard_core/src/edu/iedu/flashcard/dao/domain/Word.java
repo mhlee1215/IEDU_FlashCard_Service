@@ -10,30 +10,24 @@ public class Word {
 		this.name = name;
 		this.meaning = meaning;
 	}
-	
 	public int getWordbookid() {
 		return wordbookid;
 	}
-
 	public void setWordbookid(int wordbookid) {
 		this.wordbookid = wordbookid;
 	}
-
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
 	}
-	
 	public String getName() {
 		return name;
 	}
-
 	public void setName(String name) {
 		this.name = name;
 	}
-
 	public String getMeaning() {
 		return meaning;
 	}

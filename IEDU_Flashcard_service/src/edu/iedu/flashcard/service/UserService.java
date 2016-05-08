@@ -29,6 +29,11 @@ import edu.iedu.flashcard.dao.domain.UserBin;
 import edu.iedu.flashcard.var.Env;
 
 public class UserService {
+	public static int login(User user){
+		return User.STATUS_LOGIN_SUCCESS;
+	}
+	
+	
 	public static List<User> getUsers() {
 		User user = null;
 
