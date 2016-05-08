@@ -5,6 +5,7 @@ public class Word {
 	int wordbookid;
 	String name;
 	String meaning;
+	int position;
 	
 	public Word(String name, String meaning){
 		this.name = name;
@@ -34,7 +35,13 @@ public class Word {
 	public void setMeaning(String meaning) {
 		this.meaning = meaning;
 	}
-
+	public int getPosition() {
+		return position;
+	}
+	public void setPosition(int position) {
+		this.position = position;
+	}
+	
 	@Override
 	public String toString() {
 		return "{\"id\":\"" + id + "\",\"wordbookid\":\"" + wordbookid + "\",\"name\":\"" + name + "\",\"meaning\":\""
