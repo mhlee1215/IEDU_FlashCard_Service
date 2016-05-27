@@ -7,9 +7,10 @@ public class Word {
 	String meaning;
 	int position;
 	
-	public Word(String name, String meaning){
+	public Word(String name, String meaning, int position){
 		this.name = name;
 		this.meaning = meaning;
+		this.position = position;
 	}
 	public int getWordbookid() {
 		return wordbookid;
