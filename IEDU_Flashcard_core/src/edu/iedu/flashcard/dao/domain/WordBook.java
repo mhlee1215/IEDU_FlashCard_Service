@@ -6,11 +6,15 @@ import java.util.List;
 public class WordBook {
 	int id;
 	String name;
+	String author;
 	List<Word> wordList;
 	
 	//for parameter
 	int userid;
 
+	public WordBook(){
+		
+	}
 	
 	public WordBook(String name){
 		this.name = name;
@@ -47,14 +51,32 @@ public class WordBook {
 
 	@Override
 	public String toString() {
-		return "{\"id\":\"" + id + "\",\"name\":\"" + name + "\",\"wordList\":" + wordList + "}";
+		return "{\"id\":\"" + id + "\",\"name\":\"" + name + "\",\"author\":\"" + author + "\",\"wordList\":\""
+				+ wordList + "\",\"userid\":\"" + userid + "\"}";
 	}
 	
 	public String toStringSealize(){
 		return "?name="+name+
 				"&userid="+userid+
+				"&author="+author+
 				"&id="+id;
 				
+	}
+
+	public String getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+
+	public int getUserid() {
+		return userid;
+	}
+
+	public void setUserid(int userid) {
+		this.userid = userid;
 	}
 	
 	

@@ -7,6 +7,16 @@ public class Word {
 	String meaning;
 	int position;
 	
+	public Word(){
+		this.id = 0;
+		this.name = "";
+		this.meaning = "";
+	}
+	
+	public Word(String name, String meaning){
+		this(name, meaning, 0);
+	}
+	
 	public Word(String name, String meaning, int position){
 		this.name = name;
 		this.meaning = meaning;
