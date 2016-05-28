@@ -6,6 +6,7 @@ import java.util.List;
 public class WordBook {
 	int id;
 	String name;
+	String author;
 	List<Word> wordList;
 	
 	//for parameter
@@ -50,12 +51,14 @@ public class WordBook {
 
 	@Override
 	public String toString() {
-		return "{\"id\":\"" + id + "\",\"name\":\"" + name + "\",\"wordList\":" + wordList + "}";
+		return "{\"id\":\"" + id + "\",\"name\":\"" + name + "\",\"author\":\"" + author + "\",\"wordList\":\""
+				+ wordList + "\",\"userid\":\"" + userid + "\"}";
 	}
 	
 	public String toStringSealize(){
 		return "?name="+name+
 				"&userid="+userid+
+				"&author="+author+
 				"&id="+id;
 				
 	}
