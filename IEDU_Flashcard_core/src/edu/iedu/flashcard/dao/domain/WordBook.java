@@ -11,6 +11,9 @@ public class WordBook {
 	//for parameter
 	int userid;
 
+	public WordBook(){
+		
+	}
 	
 	public WordBook(String name){
 		this.name = name;
