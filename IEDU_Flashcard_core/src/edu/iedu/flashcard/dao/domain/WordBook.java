@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class WordBook {
+	
+	static final String WORDBOOK_DELIMTETER = "///";
+	
 	int id;
 	String name;
 	String author;
