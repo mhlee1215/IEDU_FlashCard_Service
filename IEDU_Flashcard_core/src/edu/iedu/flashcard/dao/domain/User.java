@@ -92,9 +92,9 @@ public class User {
 	}
 	
 	public String toStringSealize(){
-		return "?name="+name+
-				"&email="+email+
-				"&password="+password;
+		return "?name=\""+name+"\""+
+				"&email=\""+email+"\""+
+				"&password=\""+password+"\"";
 	}
 	
 }
