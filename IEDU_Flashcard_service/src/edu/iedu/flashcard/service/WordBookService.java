@@ -22,7 +22,6 @@ import edu.iedu.flashcard.var.Env;
 
 public class WordBookService {
 	public static List<WordBook> getWordBooks() {
-		//WordBook wordbook = null;
 		HttpClient httpclient = new DefaultHttpClient();
 		ArrayList<WordBook> wordbooks = null;
 		
@@ -37,9 +36,9 @@ public class WordBookService {
 
 		}catch (ClientProtocolException e) {
 			e.printStackTrace();
-		} catch (IOException e) {
+		}catch (IOException e) {
 			e.printStackTrace();
-		} finally {
+		}finally {
 			httpclient.getConnectionManager().shutdown();
 		}
 		return wordbooks;

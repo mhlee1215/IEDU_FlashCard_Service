@@ -29,9 +29,61 @@ import edu.iedu.flashcard.dao.domain.UserBin;
 import edu.iedu.flashcard.var.Env;
 
 public class UserService {
-	public static int login(User user){
-		return User.STATUS_LOGIN_SUCCESS;
+	
+	public static int login(User user) {
+
+		try {
+			user.setName(URLEncoder.encode(user.getName(), "UTF-8"));
+			user.setEmail(URLEncoder.encode(user.getEmail(), "UTF-8"));
+			user.setPassword(URLEncoder.encode(user.getPassword(), "UTF-8"));
+		} catch (UnsupportedEncodingException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+				
+
+
+		HttpClient httpclient = new DefaultHttpClient();
+				
+		HttpGet httpget = new HttpGet(Env.url + "appLogin.do"
+				+ user.toStringSealize());
+		
+		System.out.println(httpget.getURI());
+		HttpResponse response;
+		try {
+			response = httpclient.execute(httpget);
+			HttpEntity entity = response.getEntity();
+			if (entity != null) {
+				BufferedReader rd = new BufferedReader(new InputStreamReader(
+						response.getEntity().getContent()));
+
+				String line = "";
+				while ((line = rd.readLine()) != null) {
+					if (line.startsWith("fail")) {
+				
+						return User.STATUS_LOGIN_FAIL;
+					} else if (line.equals("success")) {
+						return User.STATUS_LOGIN_SUCCESS;
+					} else {
+						return User.STATUS_LOGIN_FAIL;
+					}
+				}
+			}
+			
+			httpget.abort();
+			httpclient.getConnectionManager().shutdown();
+			
+		} catch (ClientProtocolException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			httpclient.getConnectionManager().shutdown();
+		}
+		return User.STATUS_LOGIN_FAIL;
+		
 	}
+	
 	
 	
 	public static List<User> getUsers() {
@@ -48,6 +100,7 @@ public class UserService {
 			UserBin userBin = gson.fromJson(reader,	UserBin.class);
 			users = (ArrayList<User>) userBin.getUsers();
 
+			
 		}catch (ClientProtocolException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -112,12 +165,12 @@ public class UserService {
 	public static void main(String[] args){
 		//System.out.println(UserService.getUsers());
 		User user = new User();
-		user.setName("Aiden");
-		user.setEmail("aiden@gmail.com");
-		user.setPassword("Test Password1111");
+		user.setEmail("aiden@gmail.com2");
+		user.setPassword("Test Password11112");
 		try {
-			System.out.println(UserService.addUser(user));
-		} catch (UnsupportedEncodingException e) {
+			//System.out.println(UserService.addUser(user));
+			System.out.println(UserService.login(user));
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
