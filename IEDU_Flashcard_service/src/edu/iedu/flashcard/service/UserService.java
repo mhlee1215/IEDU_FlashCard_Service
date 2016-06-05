@@ -44,7 +44,7 @@ public class UserService {
 
 
 		HttpClient httpclient = new DefaultHttpClient();
-				
+
 		HttpGet httpget = new HttpGet(Env.url + "appLogin.do"
 				+ user.toStringSealize());
 		
