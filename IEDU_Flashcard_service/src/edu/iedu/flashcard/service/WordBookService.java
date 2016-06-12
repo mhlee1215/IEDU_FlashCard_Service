@@ -26,9 +26,13 @@ public class WordBookService {
 		ArrayList<WordBook> wordbooks = null;
 		
 		try{
-			InputStream in = new URL(Env.url + "readWordBookList.do"
-					+ "?userId="+userId)
+			String strUrl = Env.url + "readWordBookList.do"
+					+ "?userId="+userId;
+			InputStream in = new URL(strUrl)
 					.openStream();
+			
+			System.out.println(strUrl);
+			
 			JsonReader reader = new JsonReader(new InputStreamReader(in, "UTF-8"));
 			Gson gson = new Gson();
 			WordBookBin wordbookBin = gson.fromJson(reader,	WordBookBin.class);
@@ -41,13 +45,12 @@ public class WordBookService {
 		}finally {
 			httpclient.getConnectionManager().shutdown();
 		}
-		return wordbooks;
+		return wordbooks;	
 	}
 	
 	public static void main(String[] args){
 		int userId = 10;
-		
-		List<WordBook> wordBookList = WordBookService.getWordBooks(1);
+	
 		System.out.println(WordBookService.getWordBooks(userId));
 	}
 }
