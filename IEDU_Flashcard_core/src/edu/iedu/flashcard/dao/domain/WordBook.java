@@ -63,7 +63,7 @@ public class WordBook {
 				"&userid="+userid+
 				"&author="+author+
 				"&id="+id;
-				
+	
 	}
 
 	public String getAuthor() {
