@@ -45,7 +45,9 @@ public class WordBookService {
 	}
 	
 	public static void main(String[] args){
+		int userId = 10;
+		
 		List<WordBook> wordBookList = WordBookService.getWordBooks(1);
-		System.out.println(wordBookList);
+		System.out.println(WordBookService.getWordBooks(userId));
 	}
 }
