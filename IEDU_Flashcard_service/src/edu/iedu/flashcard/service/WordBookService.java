@@ -26,8 +26,8 @@ public class WordBookService {
 		ArrayList<WordBook> wordbooks = null;
 		
 		try{
-			InputStream in = new URL(Env.url + "readWordBookList.do?userId="+userId
-					+ "")
+			InputStream in = new URL(Env.url + "readWordBookList.do"
+					+ "?userId="+userId)
 					.openStream();
 			JsonReader reader = new JsonReader(new InputStreamReader(in, "UTF-8"));
 			Gson gson = new Gson();
@@ -45,7 +45,7 @@ public class WordBookService {
 	}
 	
 	public static void main(String[] args){
-		List<WordBook> wordBookList = WordBookService.getWordBooks();
+		List<WordBook> wordBookList = WordBookService.getWordBooks(1);
 		System.out.println(wordBookList);
 	}
 }
