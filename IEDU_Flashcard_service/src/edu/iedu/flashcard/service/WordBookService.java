@@ -21,22 +21,22 @@ import edu.iedu.flashcard.dao.domain.WordBookBin;
 import edu.iedu.flashcard.var.Env;
 
 public class WordBookService {
-	public static List<WordBook> getWordBooks() {
+	public static List<WordBook> getWordBooks(int userId) {
 		HttpClient httpclient = new DefaultHttpClient();
 		ArrayList<WordBook> wordbooks = null;
 		
 		try{
-			InputStream in = new URL(Env.url + "readWordBookList.do"
+			InputStream in = new URL(Env.url + "readWordBookList.do?userId="+userId
 					+ "")
 					.openStream();
 			JsonReader reader = new JsonReader(new InputStreamReader(in, "UTF-8"));
 			Gson gson = new Gson();
 			WordBookBin wordbookBin = gson.fromJson(reader,	WordBookBin.class);
 			wordbooks = (ArrayList<WordBook>) wordbookBin.getWordBooks();
-
+ 
 		}catch (ClientProtocolException e) {
 			e.printStackTrace();
-		}catch (IOException e) {
+		}catch (IOException e) { 
 			e.printStackTrace();
 		}finally {
 			httpclient.getConnectionManager().shutdown();
