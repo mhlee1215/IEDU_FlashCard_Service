@@ -85,7 +85,6 @@ public class UserService {
 	}
 	
 	
-	
 	public static List<User> getUsers() {
 		User user = null;
 
@@ -112,15 +111,40 @@ public class UserService {
 		return users;
 	}
 	
+	public static List<User> readUsers() {
+
+		HttpClient httpclient = new DefaultHttpClient();
+		ArrayList<User> users = null;
+		
+		try{
+			InputStream in = new URL(Env.url + "userListQuery.do")
+					.openStream();
+			JsonReader reader = new JsonReader(new InputStreamReader(in, "UTF-8"));
+			Gson gson = new Gson();
+			UserBin userBin = gson.fromJson(reader,	UserBin.class);
+			users = (ArrayList<User>) userBin.getUsers();
+
+			
+		}catch (ClientProtocolException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			httpclient.getConnectionManager().shutdown();
+		}
+
+		return users;
+		
+	}
+
+
 	public static boolean addUser(User user)
 			throws UnsupportedEncodingException {
 
 		//For encoding to fit query format
 		user.setName(URLEncoder.encode(user.getName(), "UTF-8"));
 		user.setEmail(URLEncoder.encode(user.getEmail(), "UTF-8"));
-		user.setPassword(URLEncoder.encode(user.getPassword(), "UTF-8"));		
-
-		
+		user.setPassword(URLEncoder.encode(user.getPassword(), "UTF-8"));
 		
 		HttpClient httpclient = new DefaultHttpClient();
 		try {
