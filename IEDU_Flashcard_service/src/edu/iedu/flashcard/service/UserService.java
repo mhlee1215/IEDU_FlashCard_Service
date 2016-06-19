@@ -186,6 +186,19 @@ public class UserService {
 		return false;
 	}
 	
+	/**
+	 * 
+	 * @param user:email
+	 * @return user:id
+	 */
+	public static User readUserData(User user) {
+		User userData = null;
+		
+		//Fill this part
+		
+		return userData;
+	}
+	
 	public static void main(String[] args){
 		System.out.println(UserService.getUsers());
 //		User user = new User();
