@@ -54,8 +54,13 @@ public class WordBook {
 
 	@Override
 	public String toString() {
-		return "{\"id\":\"" + id + "\",\"name\":\"" + name + "\",\"author\":\"" + author + "\",\"wordList\":"
-				+ wordList + ",\"userid\":\"" + userid + "\"}";
+		String rtnStr = "{\"id\":\"" + id + "\",\"name\":\"" + name + "\",\"author\":\"" + author + "\",\"wordList\":";
+		if(wordList == null) rtnStr += "[]";
+		else rtnStr += wordList;
+		rtnStr += ",\"userid\":\"" + userid + "\"}";
+		return rtnStr;
+		//return "{\"id\":\"" + id + "\",\"name\":\"" + name + "\",\"author\":\"" + author + "\",\"wordList\":"
+		//		+ wordList + ",\"userid\":\"" + userid + "\"}";
 	}
 	
 	public String toStringSealize(){
