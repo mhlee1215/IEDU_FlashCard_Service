@@ -192,17 +192,35 @@ public class UserService {
 	 * @return user:id
 	 */
 	public static User readUserData(User user) {
+
+		HttpClient httpclient = new DefaultHttpClient();
+		ArrayList<User> users = new ArrayList<User>();
 		User userData = null;
-		
-		//Fill this part
-		
+		try{
+			InputStream in = new URL(Env.url + "readUser.do" +"?email=" +user.getEmail())
+					.openStream();
+			JsonReader reader = new JsonReader(new InputStreamReader(in, "UTF-8"));
+			Gson gson = new Gson();
+			UserBin userBin = gson.fromJson(reader,	UserBin.class);
+			users = (ArrayList<User>) userBin.getUsers();
+			userData = users.get(0);
+			
+		}catch (ClientProtocolException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			httpclient.getConnectionManager().shutdown();
+		}
+
 		return userData;
 	}
 	
 	public static void main(String[] args){
-		System.out.println(UserService.getUsers());
-//		User user = new User();
-//		user.setEmail("pink@gmail.com");
+//		System.out.println(UserService.getUsers());
+		User user = new User();
+		user.setEmail("pink@gmail.com");
+		System.out.println(UserService.readUserData(user));
 //		user.setPassword("pink");
 //		try {
 //			//System.out.println(UserService.addUser(user));
