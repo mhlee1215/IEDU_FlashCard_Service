@@ -72,8 +72,6 @@ public class WordBookService {
 	}
 	
 	public static void main(String[] args){
-		int userId = 10;
-	
 		System.out.println(WordBookService.searchWordBooks("apple"));
 	}
 }
