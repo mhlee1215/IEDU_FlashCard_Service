@@ -43,7 +43,10 @@ public class User {
 		
 	private int query_start = 0;
 	private int query_number = 0;
+
 	
+	public User(){
+	}
 	
 	public int getQuery_start() {
 		return query_start;
