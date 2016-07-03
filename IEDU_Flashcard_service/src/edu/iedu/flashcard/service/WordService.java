@@ -21,7 +21,6 @@ import edu.iedu.flashcard.var.Env;
 
 public class WordService {
 	public static List<Word> getWordList(int wordbookId) {
-		//Word word = null;
 		HttpClient httpclient = new DefaultHttpClient();
 		ArrayList<Word> words = null;
 		
@@ -36,9 +35,9 @@ public class WordService {
 
 		}catch (ClientProtocolException e) {
 			e.printStackTrace();
-		} catch (IOException e) {
+		}catch (IOException e) {
 			e.printStackTrace();
-		} finally {
+		}finally {
 			httpclient.getConnectionManager().shutdown();
 		}
 		return words;
