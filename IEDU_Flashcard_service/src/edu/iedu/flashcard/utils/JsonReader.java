@@ -36,6 +36,11 @@ public class JsonReader {
   public static void main(String[] args) throws IOException, JSONException {
     JSONObject json = readJsonFromUrl("https://api.quizlet.com/2.0/sets/415?client_id=2HxWSbXZXY&whitespace=1");
     System.out.println(json.toString());
-    System.out.println(json.get("id"));
+    System.out.println(json.get("terms"));
+    System.out.println(json.getJSONArray("terms").length());
+    for(int i = 0 ; i < json.getJSONArray("terms").length() ; i++){
+    		System.out.println(json.getJSONArray("terms").getJSONObject(i).get("term"));	
+    }
+    
   }
 }
