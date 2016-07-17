@@ -14,6 +14,7 @@ public class WordBook {
 	
 	//for parameter
 	int userid;
+	int size;
 
 	public WordBook(){
 		
@@ -54,21 +55,25 @@ public class WordBook {
 
 	@Override
 	public String toString() {
-		String rtnStr = "{\"id\":\"" + id + "\",\"name\":\"" + name + "\",\"author\":\"" + author + "\",\"wordList\":";
-		if(wordList == null) rtnStr += "[]";
-		else rtnStr += wordList;
-		rtnStr += ",\"userid\":\"" + userid + "\"}";
-		return rtnStr;
-		//return "{\"id\":\"" + id + "\",\"name\":\"" + name + "\",\"author\":\"" + author + "\",\"wordList\":"
-		//		+ wordList + ",\"userid\":\"" + userid + "\"}";
+		return "{\"id\":\"" + id + "\",\"name\":\"" + name + "\",\"author\":\"" + author + "\",\"wordList\":\""
+				+ wordList + "\",\"userid\":\"" + userid + "\",\"size\":\"" + size + "\"}";
 	}
 	
 	public String toStringSealize(){
 		return "?name="+name+
 				"&userid="+userid+
 				"&author="+author+
-				"&id="+id;
+				"&id="+id+
+				"&size="+size;
 	
+	}
+
+	public int getSize() {
+		return size;
+	}
+
+	public void setSize(int size) {
+		this.size = size;
 	}
 
 	public String getAuthor() {
