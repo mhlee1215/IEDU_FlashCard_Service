@@ -5,6 +5,7 @@ public class Word {
 	int wordbookid;
 	String name;
 	String meaning;
+	String isfavorite;
 	int position;
 	
 	public Word(){
@@ -22,6 +23,16 @@ public class Word {
 		this.meaning = meaning;
 		this.position = position;
 	}
+	
+	
+	public String getIsfavorite() {
+		return isfavorite;
+	}
+
+	public void setIsfavorite(String isfavorite) {
+		this.isfavorite = isfavorite;
+	}
+
 	public int getWordbookid() {
 		return wordbookid;
 	}
@@ -56,7 +67,7 @@ public class Word {
 	@Override
 	public String toString() {
 		return "{\"id\":\"" + id + "\",\"wordbookid\":\"" + wordbookid + "\",\"name\":\"" + name + "\",\"meaning\":\""
-				+ meaning + "\"}";
+				+ meaning + "\",\"isfavorite\":\"" + isfavorite + "\"}";
 	}	
 	
 	

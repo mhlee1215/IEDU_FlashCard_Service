@@ -11,7 +11,16 @@ public class WordBook {
 	String name;
 	String author;
 	List<Word> wordList;
+	String isfavorite;
 	
+	public String getIsfavorite() {
+		return isfavorite;
+	}
+
+	public void setIsfavorite(String isfavorite) {
+		this.isfavorite = isfavorite;
+	}
+
 	//for parameter
 	int userid;
 	int size;
@@ -59,7 +68,8 @@ public class WordBook {
 		if(wordList == null) rtnStr += "[]";
 		else rtnStr += wordList;
 		rtnStr += ",\"userid\":\"" + userid + "\"";
-		rtnStr += ",\"size\":\"" + size + "\"}";
+		rtnStr += ",\"size\":\"" + size + "\"";
+		rtnStr += ",\"isfavorite\":\"" + isfavorite + "\"}";
 		return rtnStr;
 		//return "{\"id\":\"" + id + "\",\"name\":\"" + name + "\",\"author\":\"" + author + "\",\"wordList\":"
 		//		+ wordList + ",\"userid\":\"" + userid + "\"}";
@@ -70,7 +80,8 @@ public class WordBook {
 				"&userid="+userid+
 				"&author="+author+
 				"&id="+id+
-				"&size="+size;
+				"&size="+size+
+				"&isfavorite="+isfavorite;
 	
 	}
 
