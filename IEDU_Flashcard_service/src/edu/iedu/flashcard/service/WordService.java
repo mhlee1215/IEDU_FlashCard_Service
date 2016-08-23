@@ -19,15 +19,14 @@ import edu.iedu.flashcard.dao.domain.WordBin;
 
 import edu.iedu.flashcard.var.Env;
 
-public class WordListService {
-	public static List<Word> getWord() {
-		Word word = null;
+public class WordService {
+	public static List<Word> getWordList(int wordbookId) {
 		HttpClient httpclient = new DefaultHttpClient();
 		ArrayList<Word> words = null;
 		
 		try{
 			InputStream in = new URL(Env.url + "readWordList.do"
-					+ "")
+					+ "?wordbookId="+wordbookId)
 					.openStream();
 			JsonReader reader = new JsonReader(new InputStreamReader(in, "UTF-8"));
 			Gson gson = new Gson();
@@ -36,17 +35,16 @@ public class WordListService {
 
 		}catch (ClientProtocolException e) {
 			e.printStackTrace();
-		} catch (IOException e) {
+		}catch (IOException e) {
 			e.printStackTrace();
-		} finally {
+		}finally {
 			httpclient.getConnectionManager().shutdown();
 		}
-
 		return words;
 	}
 	
 	public static void main(String[] args){
-		List<Word> wordList = WordListService.getWord();
+		List<Word> wordList = WordService.getWordList(1);
 		System.out.println(wordList);
 	}
 }

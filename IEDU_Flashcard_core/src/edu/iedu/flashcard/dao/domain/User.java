@@ -28,6 +28,10 @@ public class User {
 	public final static int		STATUS_ALREADY_DELETED		= 8;
 	public final static int		STATUS_NOT_VERIFIED			= 9;
 	public final static int		STATUS_DELTE_FAIL			= 10;
+	public final static int		STATUS_LOGIN_SUCCESS		= 11;
+	public final static int 	STATUS_LOGIN_FAIL			= 12;
+	public final static int		SIGNUP_RESULT_SUCCESS 		= 13;
+	public final static int		SIGNUP_RESULT_FAIL			= 14;
 	
 	public final static String		STATUS_VERIFIED				= "STATUS_VERIFIED";
 	
@@ -39,7 +43,10 @@ public class User {
 		
 	private int query_start = 0;
 	private int query_number = 0;
+
 	
+	public User(){
+	}
 	
 	public int getQuery_start() {
 		return query_start;
