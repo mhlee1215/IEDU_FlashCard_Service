@@ -1,4 +1,6 @@
 package edu.iedu.flashcard.var;
 public class Env {
-	public static String url = "http://54.191.113.175:8080/IEDU_Flashcard_web/";
+	public static String url = "http://54.218.43.11:8080/IEDU_Flashcard_web/";
+	//public static String url = "http://localhost:8080/IEDU_Flashcard_web/";
+	//public static String url = "http://localhost:8080/IEDU_Flashcard_web/";
 }

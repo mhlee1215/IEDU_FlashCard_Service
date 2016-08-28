@@ -44,7 +44,8 @@ public class WordService {
 	}
 	
 	public static void main(String[] args){
-		List<Word> wordList = WordService.getWordList(1);
+		List<Word> wordList = WordService.getWordList(9008);
+		System.out.println(wordList.size());
 		System.out.println(wordList);
 	}
 }

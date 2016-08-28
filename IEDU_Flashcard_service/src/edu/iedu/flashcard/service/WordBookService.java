@@ -72,6 +72,7 @@ public class WordBookService {
 	}
 	
 	public static void main(String[] args){
-		System.out.println(WordBookService.searchWordBooks("apple"));
+		System.out.println(WordBookService.getWordBooks(35));
+		//System.out.println(WordBookService.searchWordBooks("apple"));
 	}
 }
