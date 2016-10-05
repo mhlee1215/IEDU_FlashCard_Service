@@ -66,8 +66,8 @@ public class Word {
 	
 	@Override
 	public String toString() {
-		return "{\"id\":\"" + id + "\",\"wordbookid\":\"" + wordbookid + "\",\"name\":\"" + name + "\",\"meaning\":\""
-				+ meaning + "\",\"isfavorite\":\"" + isfavorite + "\"}";
+		return "{\"id\":\"" + id + "\",\"wordbookid\":\"" + wordbookid + "\",\"name\":\"" + name.replaceAll("\"", "\\\"") + "\",\"meaning\":\""
+				+ meaning.replaceAll("\"", "\\\"") + "\",\"isfavorite\":\"" + isfavorite + "\"}";
 	}	
 	
 	
