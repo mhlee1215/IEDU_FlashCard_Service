@@ -219,16 +219,16 @@ public class UserService {
 	public static void main(String[] args){
 //		System.out.println(UserService.getUsers());
 		User user = new User();
-		user.setEmail("pink@gmail.com");
-		System.out.println(UserService.readUserData(user));
-//		user.setPassword("pink");
-//		try {
-//			//System.out.println(UserService.addUser(user));
-//			System.out.println(UserService.login(user));
-//		} catch (Exception e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
+		user.setEmail("pink3@gmail.com");
+		//System.out.println(UserService.readUserData(user));
+		user.setPassword("pink");
+		try {
+			System.out.println(UserService.addUser(user));
+			//System.out.println(UserService.login(user));
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }

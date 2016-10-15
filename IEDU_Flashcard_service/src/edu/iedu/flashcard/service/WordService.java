@@ -25,6 +25,8 @@ public class WordService {
 		ArrayList<Word> words = null;
 		
 		try{
+			System.out.println(Env.url + "readWordList.do"
+					+ "?wordbookId="+wordbookId);
 			InputStream in = new URL(Env.url + "readWordList.do"
 					+ "?wordbookId="+wordbookId)
 					.openStream();
@@ -44,7 +46,7 @@ public class WordService {
 	}
 	
 	public static void main(String[] args){
-		List<Word> wordList = WordService.getWordList(9008);
+		List<Word> wordList = WordService.getWordList(9034);
 		System.out.println(wordList.size());
 		System.out.println(wordList);
 	}
