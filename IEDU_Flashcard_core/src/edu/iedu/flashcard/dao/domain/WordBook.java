@@ -8,10 +8,10 @@ public class WordBook {
 	static final String WORDBOOK_DELIMTETER = "///";
 	
 	int id;
-	String name;
-	String author;
+	String name = "";
+	String author  = "";
 	List<Word> wordList;
-	String isfavorite;
+	String isfavorite  = "";
 	
 	public String getIsfavorite() {
 		return isfavorite;

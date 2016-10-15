@@ -77,6 +77,7 @@ public class WordBookService {
 		return wordbooks;
 	}
 	
+
 	public static boolean importWordbook(int fromWordbookId, int toUserId)
 			 {
 
@@ -90,6 +91,59 @@ public class WordBookService {
 
 			HttpGet httpget = new HttpGet(Env.url + "importWordBook.do"
 					+ "?fromWordbookId="+fromWordbookId+"&toUserId="+toUserId);
+			System.out.println("executing request " + httpget.getURI());
+
+			HttpResponse response = httpclient.execute(httpget);
+			HttpEntity entity = response.getEntity();
+
+			if (entity != null) {
+				BufferedReader rd = new BufferedReader(new InputStreamReader(
+						response.getEntity().getContent()));
+
+				String line = "";
+				while ((line = rd.readLine()) != null) {
+					if (line.startsWith("fail")) {
+						// Error handling
+						return false;
+					} else if (line.equals("success")) {
+						return true;
+					} else {
+						return false;
+					}
+				}
+			}
+			httpget.abort();
+			httpclient.getConnectionManager().shutdown();
+
+		} catch (ClientProtocolException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			httpclient.getConnectionManager().shutdown();
+		}
+		return false;
+	}
+	
+	
+	public static boolean updateWordBook(WordBook wordBook){
+
+		//For encoding to fit query format
+		try {
+			wordBook.setName(URLEncoder.encode(wordBook.getName(), "UTF-8"));
+			wordBook.setIsfavorite(URLEncoder.encode(wordBook.getIsfavorite(), "UTF-8"));
+		} catch (UnsupportedEncodingException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		//user.setPassword(URLEncoder.encode(user.getPassword(), "UTF-8"));
+		
+		HttpClient httpclient = new DefaultHttpClient();
+		try {
+
+			HttpGet httpget = new HttpGet(Env.url + "updateWordBook.do"
+					+ wordBook.toStringSealize());
+
 
 			System.out.println("executing request " + httpget.getURI());
 
@@ -126,8 +180,16 @@ public class WordBookService {
 	}
 	
 	public static void main(String[] args){
+
 //		System.out.println(WordBookService.getWordBooks(39));
 		WordBookService.importWordbook(9041,16);
+
+//		WordBook wb = new WordBook();
+//		wb.setId(9007);
+//		wb.setIsfavorite("Y");
+//		WordBookService.updateWordBook(wb);
+		System.out.println(WordBookService.getWordBooks(9030));
+
 		//System.out.println(WordBookService.searchWordBooks("apple"));
 	}
 }
